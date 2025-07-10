@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+let humanChoice = prompt("Rock, Paper or Scissors?");
+let humanScore = 0;
+let computerScore = 0;
+
+   function getComputerChoice() {
+    const randomizer = Math.floor(Math.random() * 3);
+    let computerChoice = ""
+    if (randomizer === 0) {
+        computerChoice = "Rock"
+    } else if (randomizer === 1) {
+        computerChoice = "Paper"
+    } else if (randomizer === 2) {
+       computerChoice = "Scissors"
+    } 
+    console.log('Computer Choose: ' + computerChoice)
+    console.log('Human Choose: ' + humanChoice)
+
+    if (computerChoice == 'Rock' && humanChoice == 'scissors'){
+        computerScore++;
+    } else if (computerChoice == 'Paper' && humanChoice == 'rock') {
+        computerScore++;
+    } else if (computerChoice == 'Scissors' && humanChoice == 'paper') {
+        computerScore++;
+    } else if (humanChoice == 'Rock' && computerChoice == 'scissors'){
+        humanScore++;
+    } else if (humanChoice == 'Paper' && computerChoice == 'rock') {
+        humanScore++;
+    } else if (humanChoice == 'Scissors' && computerChoice == 'paper') {
+        humanScore++;
+    } else if (humanChoice.toLowerCase == computerChoice.toLowerCase) {
+        console.log("Draw")
+    }
+    console.log("Human: " + humanScore)
+    console.log("Computer: " + computerScore)
+
+   }
+   getComputerChoice();
+
+   
+</script>
+</html>
