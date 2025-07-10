@@ -7,6 +7,7 @@
 </head>
 <body>
     <div>
+        <h2>First to score 5 wins!</h2>
         <p id="player">Player Score: </p>
         <p id="computer">Computer Score: </p>
         <button id="rock" value="Rock">Rock</button>
@@ -17,6 +18,7 @@
         <p id="choicePlayer">Player: </p>
         <p id="choiceComputer">Computer: </p>
         <p id="result">Results: </p>
+        <button id="reset">Reset</button>
     </div>
     
 </body>
@@ -30,8 +32,10 @@
     const result = document.querySelector('#result')
     const choicePlayer = document.querySelector('#choicePlayer');
     const choiceComputer = document.querySelector('#choiceComputer');
+    const resetBtn = document.querySelector("#reset");
 
     let humanChoice;
+    let computerChoice;
     let humanScore = 0;
     let computerScore = 0;
 
@@ -48,9 +52,13 @@
         getComputerChoice();
     })
 
+    resetBtn.addEventListener('click', () =>{
+        reset();
+    })
+
    function getComputerChoice() {
     const randomizer = Math.floor(Math.random() * 3);
-    let computerChoice = ""
+    
     if (randomizer === 0) {
         computerChoice = "Rock"
     } else if (randomizer === 1) {
@@ -90,10 +98,29 @@
         result.textContent = "Draw";
     }
     
+    if (computerScore === 5){
+       
+        alert("Computer Won!")
+        reset();
+
+    } else if (humanScore === 5){
+        
+        alert("Player Won!")
+        reset();
+    }
 
    }
 
+   function reset(){
+        computerScore = 0;
+        humanScore = 0;
+        result.textContent = "Result: "
+        player.textContent = "Player Score: "
+        computer.textContent = "Computer Score: "
+        choicePlayer.textContent = "Player: " + humanChoice;
+        choiceComputer.textContent = "Computer: " + computerChoice;
 
+   }
    
 </script>
 </html>
